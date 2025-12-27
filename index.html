@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ng Family | 2025</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-color: #2c4a3b; /* Deep Forest Green */
+            --secondary-color: #5c7a6c; /* Sage */
+            --accent-color: #d4a373; /* Warm Earth/Wood */
+            --bg-color: #f4f7f5; /* Soft Mist */
+            --text-color: #333;
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.8; overflow-x: hidden; }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 { color: var(--primary-color); font-weight: 700; margin-bottom: 1rem; }
+        h1 { font-size: 4rem; letter-spacing: -2px; }
+        h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; position: relative; }
+        h2::after {
+            content: ''; display: block; width: 60px; height: 3px; background: var(--accent-color);
+            margin: 15px auto 0; border-radius: 2px;
+        }
+        p { font-size: 1.15rem; color: #555; margin-bottom: 1.5rem; }
+
+        /* --- GLASSMORPHISM UTILITY --- */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 2.5rem;
+        }
+
+        /* --- PARALLAX SECTIONS --- */
+        .parallax-section {
+            height: 80vh; /* Full height visual break */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+
+        /* Hero Image: Majestic Tree/Nature */
+        .bg-hero { background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=2070&auto=format&fit=crop'); }
+        
+        /* Middle Break Image: Mountain/Lake */
+        .bg-break { background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop'); height: 60vh; }
+
+        .hero-content { max-width: 900px; margin: 0 20px; }
+        
+        .btn {
+            display: inline-block; padding: 15px 40px; background-color: var(--primary-color);
+            color: white; text-decoration: none; border-radius: 50px; font-weight: bold;
+            transition: all 0.3s ease; letter-spacing: 1px;
+        }
+        .btn:hover { background-color: var(--accent-color); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        /* --- STANDARD SECTIONS --- */
+        section { padding: 6rem 10%; min-height: auto; }
+
+        /* --- VALUES GRID --- */
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+        .card {
+            background: rgba(255, 255, 255, 0.6); padding: 2rem; border-radius: 15px;
+            text-align: center; transition: transform 0.3s ease; border: 1px solid rgba(255,255,255,0.5);
+        }
+        .card:hover { transform: translateY(-10px); background: white; box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+
+        /* --- FAMILY PROFILE SECTION --- */
+        .profile-container { display: flex; flex-wrap: wrap; gap: 3rem; justify-content: center; }
+        .profile-card {
+            flex: 1; min-width: 300px; max-width: 400px;
+            background: white; border-radius: 20px; overflow: hidden;
+            box-shadow: var(--shadow); transition: transform 0.3s ease;
+        }
+        .profile-card:hover { transform: translateY(-5px); }
+        .profile-img {
+            height: 250px; width: 100%; object-fit: cover;
+        }
+        .profile-text { padding: 2rem; }
+        .tag { 
+            display: inline-block; background: #eef2f0; color: var(--primary-color); 
+            padding: 5px 12px; border-radius: 15px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px;
+        }
+
+        /* --- GALLERY (Masonry-ish) --- */
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;
+        }
+        .gallery-item {
+            height: 300px; border-radius: 15px; overflow: hidden; position: relative;
+            box-shadow: var(--shadow); cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.5);
+            color: white; padding: 15px; transform: translateY(100%); transition: transform 0.3s ease;
+        }
+        .gallery-item:hover .gallery-overlay { transform: translateY(0); }
+
+        /* --- LEARNING & PARENTING --- */
+        .split-layout { display: flex; gap: 4rem; flex-wrap: wrap; align-items: center; margin-bottom: 4rem; }
+        .split-text { flex: 1; }
+        .split-visual { 
+            flex: 1; min-width: 300px; height: 450px; border-radius: 20px; box-shadow: var(--shadow);
+            background-size: cover; background-position: center;
+        }
+
+        /* --- FOOTER --- */
+        footer { background-color: #1a1a1a; color: #888; text-align: center; padding: 4rem 2rem; margin-top: 4rem; }
+        footer p { color: #888; font-size: 0.9rem; }
+
+        /* --- ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            section { padding: 4rem 5%; }
+            .parallax-section { height: 70vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="parallax-section bg-hero">
+        <div class="glass-panel hero-content reveal">
+            <h1>The Ng Family</h1>
+            <p style="font-size: 1.3rem; color: #333; font-weight: 500;">Rooted in Integrity. Growing in Hope.</p>
+            <p style="font-size: 1rem; margin-top: -10px; opacity: 0.8;">Est. 2012 • Hong Kong</p>
+            <br>
+            <a href="#profiles" class="btn">Meet The Family</a>
+        </div>
+    </div>
+
+    <section style="text-align: center; max-width: 900px; margin: 0 auto;">
+        <div class="reveal">
+            <h2 style="margin-bottom: 1.5rem;">Our Philosophy</h2>
+            <p style="font-size: 1.4rem; line-height: 1.6;">"We are a family dedicated to living with purpose. We believe that who we are when no one is watching matters most, and that a home is a training ground for making the world a brighter, kinder place."</p>
+        </div>
+    </section>
+
+    <section id="values" style="background: #eef2f0;">
+        <div class="reveal">
+            <h2>The Four Pillars</h2>
+            <div class="grid-4">
+                <div class="card">
+                    <span class="icon">❤️</span>
+                    <h4>Love</h4>
+                    <p style="font-size: 0.95rem;">Our foundation. A safe harbor where we support each other unconditionally.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">🌏</span>
+                    <h4>Respect</h4>
+                    <p style="font-size: 0.95rem;">For the Earth and all people. We listen actively and treat nature with care.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">⚓</span>
+                    <h4>Integrity</h4>
+                    <p style="font-size: 0.95rem;">Doing the right thing. We value truth and honesty above convenience.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">☀️</span>
+                    <h4>Hope</h4>
+                    <p style="font-size: 0.95rem;">Optimism in action. We believe in our ability to solve problems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profiles">
+        <div class="reveal">
+            <h2>The Team</h2>
+            <div class="profile-container">
+                
+                <div class="profile-card">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop" alt="Doctor's Workspace" class="profile-img">
+                    <div class="profile-text">
+                        <span class="tag">The Father</span>
+                        <h3>The Healer & Guide</h3>
+                        <p>A dedicated medical doctor who values discipline, science, and empathy. He teaches the family that true strength lies in caring for others.</p>
+                        <p><em>Passions: Hiking, Medical Science, History.</em></p>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?q=80&w=2070&auto=format&fit=crop" alt="Journal and Creative Space" class="profile-img">
+                    <div class="profile-text">
+                        <span class="tag">The Mother</span>
+                        <h3>The Heart & Anchor</h3>
+                        <p>The nurturing soul who ensures our home is organized, warm, and filled with art. She encourages creativity and emotional intelligence.</p>
+                        <p><em>Passions: Reading, Gardening, Arts.</em></p>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <img src="https://images.unsplash.com/photo-1596464716127-f9a862557963?q=80&w=2070&auto=format&fit=crop" alt="Boy exploring science" class="profile-img">
+                    <div class="profile-text">
+                        <span class="tag">The Son</span>
+                        <h3>The Explorer</h3>
+                        <p>Curious, fun-loving, and kind. He approaches the world with wide eyes and endless questions. A builder of Lego and a friend to animals.</p>
+                        <p><em>Passions: Nature, Building, Asking "Why?"</em></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="parallax-section bg-break">
+        <div class="glass-panel reveal" style="padding: 2rem 4rem;">
+            <h3 style="margin: 0; color: #222;">"Education is not the filling of a pail, but the lighting of a fire."</h3>
+        </div>
+    </div>
+
+    <section id="learning">
+        <div class="split-layout reveal">
+            <div class="split-visual" style="background-image: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1973&auto=format&fit=crop');"></div>
+            <div class="split-text">
+                <h2>The Learning Lab</h2>
+                <p>We believe learning happens everywhere, not just at school. Our home is designed to be a laboratory for life.</p>
+                <div class="glass-panel" style="background: white; border: none; padding: 1.5rem; margin-top: 1rem;">
+                    <h4 style="margin-bottom: 0.5rem;">Current Family Projects:</h4>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 10px;">🔭 <strong>Astronomy:</strong> Tracking the moon phases this month.</li>
+                        <li style="margin-bottom: 10px;">📖 <strong>Book Club:</strong> Reading tales of adventure and courage.</li>
+                        <li style="margin-bottom: 10px;">🥬 <strong>Sustainability:</strong> Reducing our plastic waste by 50%.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" style="background: #fff;">
+        <div class="reveal">
+            <h2>Our World in Pictures</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071&auto=format&fit=crop" alt="Forest Walk">
+                    <div class="gallery-overlay">Sunday Hikes</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1629196914375-f7e48f477b6d?q=80&w=2028&auto=format&fit=crop" alt="Cooking Together">
+                    <div class="gallery-overlay">Healthy Cooking</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=2070&auto=format&fit=crop" alt="Lego Building">
+                    <div class="gallery-overlay">Creative Time</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=2070&auto=format&fit=crop" alt="Gardening">
+                    <div class="gallery-overlay">Tending the Earth</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background-color: var(--primary-color); color: white; text-align: center;">
+        <div class="reveal" style="max-width: 700px; margin: 0 auto;">
+            <h2 style="color: white;">Let's Connect</h2>
+            <p style="color: rgba(255,255,255,0.8);">We love connecting with educators, other families, and our community. While we value our privacy, we are always open to a good conversation about the future.</p>
+            <br>
+            <div style="font-size: 3rem; opacity: 0.5;">🌱</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 The Ng Family.</p>
+        <p>Made with Love, Integrity, and Hope.</p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', reveal);
+        function reveal(){
+            var reveals = document.querySelectorAll('.reveal');
+            for(var i = 0; i < reveals.length; i++){
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 150;
+                if(revealtop < windowheight - revealpoint){
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        reveal(); // Trigger on load
+    </script>
+</body>
+</html>
