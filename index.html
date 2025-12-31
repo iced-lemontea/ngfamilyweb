@@ -117,12 +117,24 @@
             width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
         }
         .gallery-item:hover img { transform: scale(1.05); }
+         
         .gallery-overlay {
-            position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.5);
-            color: white; padding: 15px; transform: translateY(100%); transition: transform 0.3s ease;
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            background: rgba(0,0,0,0.6); /* Semi-transparent black */
+            color: white; 
+            padding: 15px; 
+            transform: translateY(100%); /* Hidden by default */
+            transition: transform 0.3s ease;
+            font-weight: bold;
+            font-size: 1rem;
         }
-        .gallery-item:hover .gallery-overlay { transform: translateY(0); }
-
+        .gallery-item:hover .gallery-overlay { 
+            transform: translateY(0); /* Slides up on hover */
+        }
+        
         /* --- LEARNING & PARENTING --- */
         .split-layout { display: flex; gap: 4rem; flex-wrap: wrap; align-items: center; margin-bottom: 4rem; }
         .split-text { flex: 1; }
@@ -152,7 +164,7 @@
     <div class="parallax-section bg-hero">
         <div class="glass-panel hero-content reveal">
             <h1>The Ng Family</h1>
-            <p style="font-size: 1.3rem; color: #333; font-weight: 500;">Rooted in Integrity. Growing in Hope.</p>
+            <p style="font-size: 1.3rem; color: #333; font-weight: 500;">Rooted in Love. Growing in Hope.</p>
             <p style="font-size: 1rem; margin-top: -10px; opacity: 0.8;">Est. 2024 • Hong Kong</p>
             <br>
             <a href="#profiles" class="btn">Meet The Family</a>
@@ -205,7 +217,7 @@
                         <span class="tag">The Father</span>
                         <h3>The Scientist & Guide</h3>
                         <p>A pathologist dedicated to finding truth through science. He teaches the family that paying attention to the smallest details can make the biggest difference.</p>
-                        <p><em>Passions: Hiking, Medical Science, History.</em></p>
+                        <p><em>Passions: Exploring New Hobbies, Medical Science, Travel.</em></p>
                     </div>
                 </div>
 
@@ -214,8 +226,8 @@
                     <div class="profile-text">
                         <span class="tag">The Mother</span>
                         <h3>The Advocate & Anchor</h3>
-                        <p>A lawyer dedicated to justice and fairness. She ensures our home is built on principles of integrity, teaching us that every voice deserves to be heard.</p>
-                        <p><em>Passions: Reading, Advocacy, Gardening.</em></p>
+                        <p>A dedicated advocate who champions fairness and lends a helping hand to those in need. She anchors our home with warmth, teaching us that while the law guides society, family is the most important foundation of all.</p>
+                        <p><em>Passions: Reading Mystery Fiction, Government Policy, Musical.</em></p>
                     </div>
                 </div>
 
@@ -224,8 +236,8 @@
                     <div class="profile-text">
                         <span class="tag">The Son</span>
                         <h3>The Little Explorer</h3>
-                        <p>Our newest addition and greatest joy. At this stage, he discovers the world through sensory exploration—tasting, touching, and his first delightful giggles. A master of tummy time.</p>
-                        <p><em>Passions: Bright Colors, Rolling Over, Music.</em></p>
+                        <p>Our newest addition and greatest joy. At this stage, he discovers the world through sensory exploration, which includes tasting and touching. A master of tummy time.</p>
+                        <p><em>Passions: Bright Colors, Rolling Over, Animals.</em></p>
                     </div>
                 </div>
 
@@ -244,13 +256,14 @@
             <div class="split-visual" style="background-image: url('https://images.unsplash.com/photo-1555252333-9f8e92e65df9?q=80&w=1974&auto=format&fit=crop');"></div>
             <div class="split-text">
                 <h2>The Learning Lab</h2>
-                <p>We believe learning begins at birth. Our home is designed to be a sensory-rich environment where every sound and texture is a lesson.</p>
+                <p>We believe learning begins at birth. Our home is designed to be a sensory-rich environment where every sound and texture is a lesson. We focus not on speed, but on depth of understanding.</p>
+                
                 <div class="glass-panel" style="background: white; border: none; padding: 1.5rem; margin-top: 1rem;">
-                    <h4 style="margin-bottom: 0.5rem;">Current Milestones:</h4>
+                    <h4 style="margin-bottom: 0.5rem;">Our Curriculum:</h4>
                     <ul style="list-style: none; padding-left: 0;">
-                        <li style="margin-bottom: 10px;">🧸 <strong>Motor Skills:</strong> Sitting up unsupported and mastering the pincer grasp.</li>
-                        <li style="margin-bottom: 10px;">📚 <strong>Story Time:</strong> Exploring high-contrast board books and textures.</li>
-                        <li style="margin-bottom: 10px;">🥣 <strong>Discovery:</strong> Introduction to solid foods and new tastes.</li>
+                        <li style="margin-bottom: 10px;">🔬 <strong>Observation:</strong> Encouraging the patience to watch, listen, and analyze the world before acting.</li>
+                        <li style="margin-bottom: 10px;">⚖️ <strong>Fairness:</strong> Learning early that kindness and justice are as important as intellect.</li>
+                        <li style="margin-bottom: 10px;">🌱 <strong>Curiosity:</strong> Valuing the question "Why?" more than the correct answer.</li>
                     </ul>
                 </div>
             </div>
@@ -261,30 +274,30 @@
         <div class="reveal">
             <h2>Our World in Pictures</h2>
             <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071&auto=format&fit=crop" alt="Forest Walk">
-                    <div class="gallery-overlay">Stroller Walks in Nature</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1629196914375-f7e48f477b6d?q=80&w=2028&auto=format&fit=crop" alt="Cooking Together">
-                    <div class="gallery-overlay">Family Meal Prep</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1505935428862-770b6f24f629?q=80&w=2067&auto=format&fit=crop" alt="Playing">
-                    <div class="gallery-overlay">Play Mat Adventures</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=2070&auto=format&fit=crop" alt="Gardening">
-                    <div class="gallery-overlay">Sensory Nature Touch</div>
-                </div>
-            </div>
+    <div class="gallery-item">
+        <img src="pic1.png" alt="Outdoor Time">
+        <div class="gallery-overlay">Outdoor Adventures</div>
+    </div>
+    <div class="gallery-item">
+        <img src="pic2.png" alt="Play Time">
+        <div class="gallery-overlay">Play & Discovery</div>
+    </div>
+    <div class="gallery-item">
+        <img src="pic3.png" alt="Meal Time">
+        <div class="gallery-overlay">First Tastes</div>
+    </div>
+    <div class="gallery-item">
+        <img src="pic4.png" alt="Story Time">
+        <div class="gallery-overlay">Quiet Story Time</div>
+    </div>
+</div>
         </div>
     </section>
 
     <section id="contact" style="background-color: var(--primary-color); color: white; text-align: center;">
         <div class="reveal" style="max-width: 700px; margin: 0 auto;">
             <h2 style="color: white;">Let's Connect</h2>
-            <p style="color: rgba(255,255,255,0.8);">We love connecting with educators, other families, and our community. While we value our privacy as we raise our little one, we are always open to a good conversation about the future.</p>
+            <p style="color: rgba(255,255,255,0.8);">We love connecting with like-minded families and individuals who share our commitment to growth and integrity. While we value our privacy as we raise our little one, we are always open to a good conversation about the future.</p>
             <br>
             <div style="margin-bottom: 2rem;">
                 <a href="mailto:connect@ngfamily.app" style="color: white; font-size: 1.5rem; text-decoration: none; border-bottom: 2px solid var(--accent-color); padding-bottom: 5px; transition: 0.3s;">connect@ngfamily.app</a>
@@ -296,6 +309,27 @@
     <footer>
         <p>&copy; 2025 The Ng Family.</p>
         <p>Made with Love, Integrity, and Hope.</p>
+        <br>
+        
+        <div style="max-width: 800px; margin: 0 auto; text-align: left; font-size: 0.7rem; color: #666;">
+            <details>
+                <summary style="cursor: pointer; text-align: center; margin-bottom: 10px; color: #888; text-decoration: underline;">
+                    View Legal Disclaimer, Terms of Service & Privacy Policy
+                </summary>
+                
+                <div style="background: rgba(0,0,0,0.05); padding: 15px; border-radius: 5px; line-height: 1.4;">
+                    <p style="margin-bottom: 10px;"><strong>1. GENERAL PROVISIONS.</strong> By accessing "The Ng Family" website (hereinafter "The Domain"), you acknowledge that this is a personal family blog and not a corporate entity. The content herein is provided "as is" with no warranties, express or implied, regarding the cuteness levels, parenting efficacy, or future academic success of the minor child (hereinafter "The Son").</p>
+                    
+                    <p style="margin-bottom: 10px;"><strong>2. INTELLECTUAL PROPERTY & LIKENESS.</strong> All photographic evidence of The Son, including but not limited to "The Cheeks," "The Giggles," and "The Tummy Time Form," remains the exclusive intellectual property of The Parents. Unauthorized reproduction of The Son’s likeness for commercial purposes, meme generation, or unsolicited advice is strictly prohibited under applicable family statutes.</p>
+                    
+                    <p style="margin-bottom: 10px;"><strong>3. LIMITATION OF LIABILITY.</strong> The Mother (Esq.) and The Father (M.D.) shall not be held liable for any emotional damages, including "heart-melting," "baby fever," or "sudden desire to procreate," resulting from viewing the Gallery section. Users assume all risks associated with exposure to high levels of wholesomeness.</p>
+                    
+                    <p style="margin-bottom: 10px;"><strong>4. PRIVACY POLICY.</strong> While we share glimpses of our life, we retain the right to obscure sensitive data. Any attempts to deduce the exact location of the "Learning Lab" or the secret recipe for the family dinner will be met with a stern look and potential legal action involving very long, boring letters.</p>
+                    
+                    <p style="margin-bottom: 0;"><strong>5. GOVERNING LAW.</strong> These terms shall be governed by the laws of Hong Kong and the unspoken House Rules of the Ng Residence. In the event of a dispute, the parties agree to settle the matter over tea, provided The Son is sleeping.</p>
+                </div>
+            </details>
+        </div>
     </footer>
 
     <script>
